@@ -112,13 +112,3 @@ Seed accounts (SHA‑256 / `password123`):
 | Student | `alice.student@campus.edu` | `password123` |
 | Admin | `admin.ops@campus.edu` | `password123` |
 
-## Resume talking points
-
-- Transactional order placement + trigger-enforced inventory under concurrency pressure.  
-- Stored procedure payment simulation keeps audit trail columns synchronized with triggers.  
-- Analytics stack demonstrates JOIN + `GROUP BY`, materialized VIEW rollups, and callable reporting SQL.  
-- MVC separation allows swapping `ConsoleView` for REST/Thymeleaf without touching DAO SQL.
-
-## Security disclaimer
-
-Password hashing is **SHA‑256 for classroom clarity only**. Replace with Argon2id/BCrypt + peppering before any real deployment.
