@@ -1,0 +1,3 @@
+jdbc.url=jdbc:mysql://127.0.0.1:3306/campus_eateries?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+jdbc.username=root
+jdbc.password=your_password_here

@@ -1,0 +1,71 @@
+@startuml campus_eateries_uml
+skinparam classAttributeIconSize 0
+title Campus Eateries - Core OOP Model (excerpt)
+
+interface IAuthenticatedUser {
+  +getUserId(): long
+  +getEmail(): String
+  +getRole(): UserRole
+  +getFullName(): String
+  +isActive(): boolean
+}
+
+abstract class AbstractUser {
+  #userId: long
+  #email: String
+  #passwordHash: String
+  #fullName: String
+  #phone: String
+  #role: UserRole
+  #active: boolean
+  +{abstract} canManageCatalog(): boolean
+}
+
+class StudentUser {
+  +canManageCatalog(): boolean
+}
+
+class AdminAccount {
+  -department: String
+  -clearanceLevel: int
+  +canManageCatalog(): boolean
+}
+
+interface IPaymentSimulator {
+  +channelName(): String
+  +authorize(amountUsd: double): boolean
+}
+
+abstract class AbstractPayment {
+  #grossAmountUsd: BigDecimal
+  +{abstract} jdbcChannel(): PaymentMethod
+}
+
+class SimCardPayment
+class SimDigitalWalletPayment
+class CashOnDeliverySimPayment
+
+IAuthenticatedUser <|.. AbstractUser
+AbstractUser <|-- StudentUser
+AbstractUser <|-- AdminAccount
+
+IPaymentSimulator <|.. AbstractPayment
+AbstractPayment <|-- SimCardPayment
+AbstractPayment <|-- SimDigitalWalletPayment
+AbstractPayment <|-- CashOnDeliverySimPayment
+
+interface IAuthService
+interface IOrderFulfillment
+
+class AuthService
+class OrderFulfillmentService
+
+IAuthService <|.. AuthService
+IOrderFulfillment <|.. OrderFulfillmentService
+
+note right of OrderFulfillmentService
+  Service layer coordinates DAO + JDBC transactions.
+  Controllers depend on interfaces for clean MVC tests.
+end note
+
+@enduml
