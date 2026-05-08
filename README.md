@@ -99,6 +99,9 @@ ER narrative: [`docs/ER_DIAGRAM.md`](docs/ER_DIAGRAM.md) (Mermaid).
 
 ## Running
 
+```bash
+mvn compile
+mvn exec:java           # invokes com.campuseateries.CampusEateriesApp
 ```
 
 CLI tips print inside the anonymous menu (`[4] readme`).  
