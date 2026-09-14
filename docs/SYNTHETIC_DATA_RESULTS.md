@@ -13,7 +13,7 @@ The seed file ends with a small **verification UNION** (`orders`, `order_items`,
 
 > Exact inventory after loads differs because **`order_items` triggers deduct stock**; row counts above are stable.
 
-### `04_reporting_queries.sql` — what you should see
+### `04_reporting_queries.sql` — what you should see apparently
 
 1. **Top-selling (paid, last 30 days)** — `Latte Medium` should lead (orders O1 + O6 = **23** units); **`Veg Combo Box`** spikes from O8 (**8** units on one receipt); **`Cold Brew Large`** (**6**) from Carol’s Quad order; **`Chicken Teriyaki`** aggregates across Bob + Dave (**5** total units); **`Medit Bowl`** appears from Alice + Bob (**6** combined).
 
